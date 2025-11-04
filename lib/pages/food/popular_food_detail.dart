@@ -3,6 +3,7 @@ import 'package:ecommapp/utils/dimensions.dart';
 import 'package:ecommapp/widgets/app_column.dart';
 import 'package:ecommapp/widgets/app_icon.dart';
 import 'package:ecommapp/widgets/big_text.dart';
+import 'package:ecommapp/widgets/expandable_text_widget.dart';
 import 'package:ecommapp/widgets/icon_and_text_widget.dart';
 import 'package:ecommapp/widgets/small_text.dart';
 import 'package:flutter/cupertino.dart';
@@ -65,12 +66,15 @@ class PopularFoodDetail extends StatelessWidget {
                 children: [
                   AppColumn(text: "Chinese Side",),
                   SizedBox(height: Dimensions.height20,),
-                  BigText(text: "Introduce")
+                  BigText(text: "Introduce"),
+                  ExpandableTextWidget(text: "Every once in a while, I combine a few ingredients and they work together from the very start.  This spice blend is one of those magical mysteries. I’ve tripled the recipe so you can keep enough on hand to use for weeks on chicken, fish, and any type of roasted vegetable. For the protein, Belcampo’s Chicken Thighs are perfect. The skin renders in the oven or on the grill, leaving you with a crispy, crunchy exterior and juicy chicken with every bite.")
                 ],
               ),
 
 
-          ))
+          )),
+
+
         ],
       ),
       bottomNavigationBar: Container(
