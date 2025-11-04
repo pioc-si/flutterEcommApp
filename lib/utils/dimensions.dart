@@ -34,6 +34,23 @@ class Dimensions {
   static double radius30 = screenHeight / 28.13; // => 30
   static double radius45 = screenHeight/30.76;
 
+ // icons size
+  static double iconSize24 = screenHeight / 35.17;
+  static double iconSize16 = screenHeight / 52.75;
+
+  //list view siz 390
+  static double listViewImageSize = screenWeight / 3.25;
+  static double listViewTextConatinerSize = screenWeight / 3.9;
+
+  // popular food
+  static double popularFoodImageSize = screenHeight / 2.41; // = > 240
+
+  // bottom height
+  static double bottomHeightBar = screenHeight / 7.03; // = > 240
+
+  //splash srenn dimensions
+
+  static double splashImg = screenHeight / 3.38; // = > 240
 
 
 
