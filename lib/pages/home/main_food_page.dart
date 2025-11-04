@@ -1,5 +1,5 @@
 
-import 'package:ecommapp/home/food_page_body.dart';
+import 'package:ecommapp/pages/home/food_page_body.dart';
 import 'package:ecommapp/utils/colors.dart';
 import 'package:ecommapp/utils/dimensions.dart';
 import 'package:ecommapp/widgets/big_text.dart';
@@ -53,7 +53,10 @@ class _MainFoodPageState extends State<MainFoodPage> {
             ),
           ),
 
-          FoodPageBody(),
+          Expanded(
+            child: SingleChildScrollView(
+              child: FoodPageBody(),
+            )),
         ],
       ),
     );
