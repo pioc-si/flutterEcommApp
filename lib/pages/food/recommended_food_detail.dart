@@ -137,6 +137,7 @@ class RecommenededFoodDetail extends StatelessWidget {
                   child: Icon(
                     Icons.favorite,
                     color: AppColors.mainColor,
+                    size: 45,
                   ),
                 ),
                 Container(
