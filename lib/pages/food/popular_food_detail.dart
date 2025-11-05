@@ -67,7 +67,12 @@ class PopularFoodDetail extends StatelessWidget {
                   AppColumn(text: "Chinese Side",),
                   SizedBox(height: Dimensions.height20,),
                   BigText(text: "Introduce"),
-                  ExpandableTextWidget(text: "Every once in a while, I combine a few ingredients and they work together from the very start.  This spice blend is one of those magical mysteries. I’ve tripled the recipe so you can keep enough on hand to use for weeks on chicken, fish, and any type of roasted vegetable. For the protein, Belcampo’s Chicken Thighs are perfect. The skin renders in the oven or on the grill, leaving you with a crispy, crunchy exterior and juicy chicken with every bite.")
+                  SizedBox(height: Dimensions.height20,),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: ExpandableTextWidget(
+                      text: "Every once in a while, I combine a few ingredients and they work together from the very start.  This spice blend is one of those magical mysteries. I’ve tripled the recipe so you can keep enough on hand to use for weeks on chicken, fish, and any type of roasted vegetable. For the protein, Belcampo’s Chicken Thighs are perfect. The skin renders in the oven or on the grill, leaving you with a crispy, crunchy exterior and juicy chicken with every bite. I’ve tripled the recipe so you can keep enough on hand to use for weeks on chicken, fish, and any type of roasted vegetable. For the protein, Belcampo’s Chicken Thighs are perfect. The skin renders in the oven or on the grill, leaving you with a crispy, crunchy exterior and juicy chicken with every bite. ")),
+                  )
                 ],
               ),
 
