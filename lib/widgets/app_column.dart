@@ -34,7 +34,7 @@ class AppColumn extends StatelessWidget {
           ],
         ),
 
-        SizedBox(height: Dimensions.height20),
+        SizedBox(height: Dimensions.height15),
 
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
