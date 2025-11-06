@@ -112,7 +112,7 @@ class PopularFoodDetail extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            padding: EdgeInsets.only(top: Dimensions.height20, bottom: Dimensions.height20, left: Dimensions.width20, right: Dimensions.width20),
+            padding: EdgeInsets.only(top: Dimensions.height20, bottom: Dimensions.height15, left: Dimensions.width20, right: Dimensions.width20),
             
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(Dimensions.radius20),
@@ -129,7 +129,7 @@ class PopularFoodDetail extends StatelessWidget {
           ),  
           ),
           Container(
-            padding: EdgeInsets.only(top: Dimensions.height20, bottom: Dimensions.height20, left: Dimensions.width20, right: Dimensions.width20),
+            padding: EdgeInsets.only(top: Dimensions.height20, bottom: Dimensions.height15, left: Dimensions.width20, right: Dimensions.width20),
             child: BigText(text: "\$10 | Add to cart", color: Colors.white,),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(Dimensions.radius20),
