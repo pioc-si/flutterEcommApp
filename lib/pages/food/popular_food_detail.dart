@@ -1,4 +1,5 @@
 import 'package:ecommapp/controllers/popular_product_controller.dart';
+import 'package:ecommapp/models/products_model.dart';
 import 'package:ecommapp/utils/app_constants.dart';
 import 'package:ecommapp/utils/colors.dart';
 import 'package:ecommapp/utils/dimensions.dart';
@@ -130,7 +131,7 @@ class PopularFoodDetail extends StatelessWidget {
           ),
           Container(
             padding: EdgeInsets.only(top: Dimensions.height20, bottom: Dimensions.height15, left: Dimensions.width20, right: Dimensions.width20),
-            child: BigText(text: "\$10 | Add to cart", color: Colors.white,),
+            child: BigText(text: "\$ ${product.price!} | Add to cart", color: Colors.white,),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(Dimensions.radius20),
               color: AppColors.mainColor,
