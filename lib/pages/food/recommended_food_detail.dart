@@ -1,4 +1,6 @@
+import 'package:ecommapp/controllers/recommended_product_controller.dart';
 import 'package:ecommapp/routes/route_helper.dart';
+import 'package:ecommapp/utils/app_constants.dart';
 import 'package:ecommapp/utils/colors.dart';
 import 'package:ecommapp/utils/dimensions.dart';
 import 'package:ecommapp/widgets/app_icon.dart';
@@ -10,10 +12,12 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 class RecommendedFoodDetail extends StatelessWidget {
-  const RecommendedFoodDetail({super.key});
+  final int pageId;
+  const RecommendedFoodDetail({Key? key, required this.pageId}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var product = Get.find<RecommendedProductController>().recommendedProductList[pageId];
     return Scaffold(
       backgroundColor: Colors.white,
       body: CustomScrollView(
@@ -39,7 +43,7 @@ class RecommendedFoodDetail extends StatelessWidget {
               child: Container(
                 //margin: EdgeInsets.only(left: Dimensions.width20, right: Dimensions.width20),
                 child: Center(
-                  child: BigText(size: Dimensions.font26, text: "Chinese Side"),
+                  child: BigText(size: Dimensions.font26, text:product.name!),
                 ),
                 width: double.maxFinite,
                 padding: EdgeInsets.only(top: 5, bottom: 10),
@@ -56,8 +60,8 @@ class RecommendedFoodDetail extends StatelessWidget {
             backgroundColor: AppColors.yellowColor,
             expandedHeight: 300,
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.asset(
-                "assets/images/food0.png",
+              background: Image.network(
+                AppConstants.BASE_URL+AppConstants.UPLOAD_URL+product.img!,
                 width: double.maxFinite,
                 fit: BoxFit.cover,
               ),
@@ -67,10 +71,7 @@ class RecommendedFoodDetail extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  child: ExpandableTextWidget(
-                    text:
-                        "he grill, leavihe grill, leaving you with a crispy, crunchy exterior and juicy chicken with everhe grill, leaving you with a crispy, crunchy exterior and juicy chicken with everhe grill, leaving you with a crispy, crunchy exterior and juicy chicken with everhe grill, leaving you with a crispy, crunchy exterior and juicy chicken with everhe grill, leaving you with a crispy, crunchy exterior and juicy chicken with everhe grill, leaving you with a crispy, crunchy exterior and juicy chicken with everng you with a crispy, crunchy exterior and juicy chicken with everhe grill, leaving you with a crispy, crunchy exterior and juicy chicken with everhe grill, leaving you with a crispy, crunchy exterior and juicy chicken with everhe grill, leaving you with a crispy, crunchy exterior and juicy chicken with everhe grill, leaving you with a crispy, crunchy exterior and juicy chicken with everhe grill, leaving you with a crispy, crunchy exterior and juicy chicken with everhe grill, leaving you with a crispy, crunchy exterior and juicy chicken with ever",
-                  ),
+                  child: ExpandableTextWidget(text: product.description!),
                   margin: EdgeInsets.only(
                     left: Dimensions.width20,
                     right: Dimensions.width20,
@@ -101,7 +102,7 @@ class RecommendedFoodDetail extends StatelessWidget {
                   icon: Icons.remove,
                 ),
                 BigText(
-                  text: "\$12.99 " + " X " + " 0 ",
+                  text: "\$ ${product.price!} X  0 ",
                   color: AppColors.mainBlackColor,
                   size: Dimensions.font26,
                 ),
