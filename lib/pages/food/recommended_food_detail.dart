@@ -1,3 +1,4 @@
+import 'package:ecommapp/routes/route_helper.dart';
 import 'package:ecommapp/utils/colors.dart';
 import 'package:ecommapp/utils/dimensions.dart';
 import 'package:ecommapp/widgets/app_icon.dart';
@@ -5,9 +6,11 @@ import 'package:ecommapp/widgets/big_text.dart';
 import 'package:ecommapp/widgets/expandable_text_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
-class RecommenededFoodDetail extends StatelessWidget {
-  const RecommenededFoodDetail({super.key});
+class RecommendedFoodDetail extends StatelessWidget {
+  const RecommendedFoodDetail({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,11 +19,18 @@ class RecommenededFoodDetail extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            automaticallyImplyLeading: false,
             toolbarHeight: 80,
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AppIcon(icon: Icons.clear),
+                GestureDetector(
+                  onTap: () {
+                      Get.toNamed(RouteHelper.getInitial());
+                  },
+                  child: AppIcon(icon: Icons.clear),
+                ),
+                
                 AppIcon(icon: Icons.local_shipping_outlined),
               ],
             ),

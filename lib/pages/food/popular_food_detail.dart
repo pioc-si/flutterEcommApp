@@ -1,3 +1,5 @@
+import 'package:ecommapp/controllers/popular_product_controller.dart';
+import 'package:ecommapp/utils/app_constants.dart';
 import 'package:ecommapp/utils/colors.dart';
 import 'package:ecommapp/utils/dimensions.dart';
 import 'package:ecommapp/widgets/app_column.dart';
@@ -13,10 +15,13 @@ import 'package:get/get.dart';
 import '../home/main_food_page.dart';
 
 class PopularFoodDetail extends StatelessWidget {
-  const PopularFoodDetail({super.key});
+  int pageId;
+  PopularFoodDetail({Key? key, required this.pageId}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var product = Get.find<PopularProductController>().popularProductList[pageId];
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
@@ -30,7 +35,9 @@ class PopularFoodDetail extends StatelessWidget {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: AssetImage("assets/images/food0.png"),
+                  image: NetworkImage(
+                    AppConstants.BASE_URL+AppConstants.UPLOAD_URL+product.img!
+                  ),
                 ),
               ),
             ),
@@ -72,14 +79,14 @@ class PopularFoodDetail extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  AppColumn(text: "Chinese Side",),
+                  AppColumn(text: product.name!),
                   SizedBox(height: Dimensions.height20,),
                   BigText(text: "Introduce"),
                   SizedBox(height: Dimensions.height20,),
                   Expanded(
                     child: SingleChildScrollView(
                       child: ExpandableTextWidget(
-                      text: "Every once in a while, I combine a few ingredients and they work together from the very start.  This spice blend is one of those magical mysteries. I’ve tripled the recipe so you can keep enough on hand to use for weeks on chicken, fish, and any type of roasted vegetable. For the protein, Belcampo’s Chicken Thighs are perfect. The skin renders in the oven or on the grill, leaving you with a crispy, crunchy exterior and juicy chicken with every bite. I’ve tripled the recipe so you can keep enough on hand to use for weeks on chicken, fish, and any type of roasted vegetable. For the protein, Belcampo’s Chicken Thighs are perfect. The skin renders in the oven or on the grill, leaving you with a crispy, crunchy exterior and juicy chicken with every bite. ")),
+                      text: product.description!)),
                   )
                 ],
               ),

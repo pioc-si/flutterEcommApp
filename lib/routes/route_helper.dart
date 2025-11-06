@@ -1,6 +1,9 @@
 import 'package:ecommapp/pages/food/popular_food_detail.dart';
+import 'package:ecommapp/pages/food/recommended_food_detail.dart';
 import 'package:ecommapp/pages/home/main_food_page.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:get/route_manager.dart';
 
 class RouteHelper {
 
@@ -8,15 +11,24 @@ class RouteHelper {
   static const String popularFood = "/popular-food";
   static const String recommendeFood = "/recommended-food";
 
-  static String getPopularFood() => '$popularFood';
+  static String getInitial()=>'$initial';
+  static String getPopularFood(int pageId) => '$popularFood?pageId=$pageId';
   static String getRecommendedFood() => '$recommendeFood';
 
 
   static List<GetPage> routes =[
-    GetPage(name: "/", page: () => MainFoodPage()),
+    GetPage(name: initial, page: () => MainFoodPage()),
     GetPage(name: popularFood, page: () {
-      return PopularFoodDetail();
-    }),
+      var pageId = Get.parameters['pageId'];
+      return PopularFoodDetail(pageId:int.parse(pageId!));
+    },
+      transition: Transition.fadeIn
+    ),
+    GetPage(name: recommendeFood, page: () {
+      return RecommendedFoodDetail();
+    },
+      transition: Transition.fadeIn
+    ),
 
     
   ];
