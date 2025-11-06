@@ -1,3 +1,4 @@
+import 'package:ecommapp/pages/food/popular_food_detail.dart';
 import 'package:ecommapp/pages/home/main_food_page.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
@@ -10,7 +11,8 @@ class RouteHelper {
 
   static List<GetPage> routes =[
     GetPage(name: "/", page: () => MainFoodPage()),
-    
+    GetPage(name: popularFood, page: () => PopularFoodDetail()),
+
     
   ];
 

@@ -3,6 +3,7 @@ import 'package:ecommapp/controllers/popular_product_controller.dart';
 import 'package:ecommapp/controllers/recommended_product_controller.dart';
 import 'package:ecommapp/models/products_model.dart';
 import 'package:ecommapp/pages/food/popular_food_detail.dart';
+import 'package:ecommapp/routes/route_helper.dart';
 import 'package:ecommapp/utils/app_constants.dart';
 import 'package:ecommapp/utils/colors.dart';
 import 'package:ecommapp/utils/dimensions.dart';
@@ -53,7 +54,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                     height: Dimensions.pageView,
                     child: GestureDetector(
                       onTap: () {
-                        Get.to(()=>PopularFoodDetail());
+                        Get.toNamed(RouteHelper.popularFood);
                       },
                       child: PageView.builder(
                         controller: pageController,

@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       
       home: MainFoodPage(),
-      //initialRoute: RouteHelper.initial,
+      initialRoute: RouteHelper.initial,
       getPages: RouteHelper.routes,
     );
   }
