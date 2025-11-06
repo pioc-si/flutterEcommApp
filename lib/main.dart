@@ -1,4 +1,5 @@
 import 'package:ecommapp/controllers/popular_product_controller.dart';
+import 'package:ecommapp/controllers/recommended_product_controller.dart';
 import 'package:ecommapp/pages/food/popular_food_detail.dart';
 import 'package:ecommapp/pages/food/recommended_food_detail.dart';
 import 'package:ecommapp/pages/home/food_page_body.dart';
@@ -18,6 +19,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.find<PopularProductController>().getPpopularProductList();
+    Get.find<RecommendedProductController>().getRecommendedProductList();
+
 
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
