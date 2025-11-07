@@ -39,7 +39,7 @@ class ProductModel {
   int? typeId;
 
   ProductModel({
-    required this.id,
+    this.id,
     this.name,
     this.description,
     this.price,
