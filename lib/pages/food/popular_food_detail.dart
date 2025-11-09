@@ -62,16 +62,16 @@ class PopularFoodDetail extends StatelessWidget {
                 ),
 
                 
-                GetBuilder<PopularProductController>(
-                  builder: (controller) {
+                GetBuilder<PopularProductController>(builder: (controller) {
                     return GestureDetector(
                       onTap: () {
+                        if(controller.totalItems >= 1)
                         Get.toNamed(RouteHelper.getCartPage());
                       },
                       child: Stack(
                         children: [
                           AppIcon(icon: Icons.shopping_cart_outlined),
-                          Get.find<PopularProductController>().totalItems >= 1
+                          controller.totalItems >= 1
                               ? Positioned(
                                   right: 0,
                                   top: 0,
