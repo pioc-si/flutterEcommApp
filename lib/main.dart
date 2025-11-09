@@ -1,3 +1,4 @@
+import 'package:ecommapp/controllers/cart_controller.dart';
 import 'package:ecommapp/controllers/popular_product_controller.dart';
 import 'package:ecommapp/controllers/recommended_product_controller.dart';
 import 'package:ecommapp/pages/cart/cart_page.dart';
@@ -9,6 +10,8 @@ import 'package:ecommapp/pages/splash/splash_page.dart';
 import 'package:ecommapp/routes/route_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/state_manager.dart';
 import 'helper/dependencies.dart' as dep;
 
 Future<void> main() async {
@@ -20,6 +23,7 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Get.find<CartController>().getCartData();
     return GetBuilder<PopularProductController>( builder: (_) {
         return GetBuilder<RecommendedProductController>(  builder: (_) {
             return GetMaterialApp(
