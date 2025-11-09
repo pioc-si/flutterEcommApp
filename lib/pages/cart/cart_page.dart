@@ -1,3 +1,4 @@
+import 'package:ecommapp/base/no_data_page.dart';
 import 'package:ecommapp/controllers/cart_controller.dart';
 import 'package:ecommapp/controllers/popular_product_controller.dart';
 import 'package:ecommapp/controllers/recommended_product_controller.dart';
@@ -55,7 +56,9 @@ class CartPage extends StatelessWidget {
               ],
             ),
           ),
-          Positioned(
+          GetBuilder<CartController>(builder: (_cartController){
+            return _cartController.getItems.length>0?
+            Positioned(
             top: Dimensions.height20 * 5,
             left: Dimensions.width20,
             right: Dimensions.width20,
@@ -190,7 +193,9 @@ class CartPage extends StatelessWidget {
                 
               ),
             ),
-          ),
+          ):NoDataPage(text: "Your cart is empty!");
+          })
+          
         ],
       ),
       bottomNavigationBar: GetBuilder<CartController>(
@@ -210,7 +215,8 @@ class CartPage extends StatelessWidget {
                 topRight: Radius.circular(Dimensions.radius20 * 2),
               ),
             ),
-            child: Row(
+            child: cartController.getItems.length>0?
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
@@ -259,7 +265,7 @@ class CartPage extends StatelessWidget {
                   ),
                 ),
               ],
-            ),
+            ):Container(),
           );
         },
       ),
