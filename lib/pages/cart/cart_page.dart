@@ -1,3 +1,6 @@
+import 'package:ecommapp/controllers/cart_controller.dart';
+import 'package:ecommapp/pages/home/main_food_page.dart';
+import 'package:ecommapp/utils/app_constants.dart';
 import 'package:ecommapp/utils/colors.dart';
 import 'package:ecommapp/utils/dimensions.dart';
 import 'package:ecommapp/widgets/app_icon.dart';
@@ -5,6 +8,7 @@ import 'package:ecommapp/widgets/big_text.dart';
 import 'package:ecommapp/widgets/small_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({Key? key}) : super(key: key);
@@ -28,11 +32,16 @@ class CartPage extends StatelessWidget {
                   IconSize: Dimensions.iconSize24,
                 ),
                 SizedBox(width: Dimensions.width20 * 5),
-                AppIcon(
-                  icon: Icons.home_outlined,
-                  iconColor: Colors.white,
-                  backgroundColor: AppColors.mainColor,
-                  IconSize: Dimensions.iconSize24,
+                GestureDetector(
+                  onTap: (){
+                    Get.to(()=>MainFoodPage());
+                  },
+                  child: AppIcon(
+                    icon: Icons.home_outlined,
+                    iconColor: Colors.white,
+                    backgroundColor: AppColors.mainColor,
+                    IconSize: Dimensions.iconSize24,
+                  ),
                 ),
                 AppIcon(
                   icon: Icons.shopping_cart,
@@ -54,8 +63,9 @@ class CartPage extends StatelessWidget {
               child: MediaQuery.removePadding(
                 context: context,
                 removeTop: true,
-                child: ListView.builder(
-                  itemCount: 10,
+                child: GetBuilder<CartController>(builder: (cartController){
+                    return ListView.builder(
+                  itemCount: cartController.getItems.length,
                   itemBuilder: (_, index) {
                     return Container(
                       height: Dimensions.height20 * 5,
@@ -71,7 +81,9 @@ class CartPage extends StatelessWidget {
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 fit: BoxFit.cover,
-                                image: AssetImage("assets/images/food0.png"),
+                                image: NetworkImage(
+                                  AppConstants.BASE_URL+AppConstants.UPLOAD_URL+cartController.getItems[index].img!
+                                )
                               ),
                               borderRadius: BorderRadius.circular(
                                 Dimensions.radius20,
@@ -88,12 +100,13 @@ class CartPage extends StatelessWidget {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  BigText(text: "juice", color: Colors.black54),
+                                  BigText(text: cartController.getItems[index].name!, color: Colors.black54),
                                   SmallText(text: "spicy"),
                                   Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
                                       BigText(
-                                        text: "\$ 33.0",
+                                        text: cartController.getItems[index].price.toString(),
                                         color: Colors.redAccent,
                                       ),
                                       Container(
@@ -151,7 +164,10 @@ class CartPage extends StatelessWidget {
                       ),
                     );
                   },
-                ),
+                );
+                }),
+                
+                
               ),
             ),
           ),

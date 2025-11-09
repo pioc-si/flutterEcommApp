@@ -1,6 +1,7 @@
 import 'package:ecommapp/controllers/cart_controller.dart';
 import 'package:ecommapp/controllers/popular_product_controller.dart';
 import 'package:ecommapp/models/products_model.dart';
+import 'package:ecommapp/pages/cart/cart_page.dart';
 import 'package:ecommapp/utils/app_constants.dart';
 import 'package:ecommapp/utils/colors.dart';
 import 'package:ecommapp/utils/dimensions.dart';
@@ -67,10 +68,15 @@ class PopularFoodDetail extends StatelessWidget {
                       Get.find<PopularProductController>().totalItems>=1?
                       Positioned(
                         right:0, top:0,
-                        child: AppIcon(
-                          icon: Icons.circle, size: 20, 
-                        iconColor: Colors.transparent,
-                        backgroundColor: AppColors.mainColor,),
+                        child: GestureDetector(
+                          onTap: () {
+                            Get.to(()=>CartPage());
+                          },
+                          child: AppIcon(
+                            icon: Icons.circle, size: 20, 
+                          iconColor: Colors.transparent,
+                          backgroundColor: AppColors.mainColor,),
+                        ),
                       ):
                       Container(),
                       Get.find<PopularProductController>().totalItems>=1?
