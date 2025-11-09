@@ -65,8 +65,9 @@ class CartPage extends StatelessWidget {
                 context: context,
                 removeTop: true,
                 child: GetBuilder<CartController>(builder: (cartController){
+                  var _cartList = cartController.getItems;
                     return ListView.builder(
-                  itemCount: cartController.getItems.length,
+                  itemCount: _cartList.length,
                   itemBuilder: (_, index) {
                     return Container(
                       height: Dimensions.height20 * 5,
@@ -127,7 +128,7 @@ class CartPage extends StatelessWidget {
                                           children: [
                                             GestureDetector(
                                               onTap: () {
-                                                //popularProduct.setQuantity(false);
+                                                cartController.addItem(_cartList[index].product!, -1);
                                               },
                                               child: Icon(
                                                 Icons.remove,
@@ -138,14 +139,14 @@ class CartPage extends StatelessWidget {
                                               width: Dimensions.width10 / 2,
                                             ),
                                             BigText(
-                                              text: "0",
+                                              text: _cartList[index].quantity.toString(),
                                             ), //popularProduct.inCartItems.toString()),
                                             SizedBox(
                                               width: Dimensions.width10 / 2,
                                             ),
                                             GestureDetector(
                                               onTap: () {
-                                                //popularProduct.setQuantity(true);
+                                                cartController.addItem(_cartList[index].product!, 1);
                                               },
                                               child: Icon(
                                                 Icons.add,
