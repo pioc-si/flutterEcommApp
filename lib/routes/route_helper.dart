@@ -1,6 +1,7 @@
 import 'package:ecommapp/pages/cart/cart_page.dart';
 import 'package:ecommapp/pages/food/popular_food_detail.dart';
 import 'package:ecommapp/pages/food/recommended_food_detail.dart';
+import 'package:ecommapp/pages/home/home_page.dart';
 import 'package:ecommapp/pages/home/main_food_page.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
@@ -21,7 +22,7 @@ class RouteHelper {
 
 
   static List<GetPage> routes =[
-    GetPage(name: initial, page: () => MainFoodPage()),
+    GetPage(name: initial, page: () => HomePage()),
 
 
     GetPage(name: popularFood, page: () {
