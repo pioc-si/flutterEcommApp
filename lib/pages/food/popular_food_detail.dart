@@ -58,6 +58,8 @@ class PopularFoodDetail extends StatelessWidget {
                   },
                   child: AppIcon(icon: Icons.arrow_back_ios),
                 ),
+
+                
                 GetBuilder<PopularProductController>(builder: (controller){
                   return Stack(
                     children: [
