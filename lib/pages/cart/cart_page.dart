@@ -1,5 +1,6 @@
 import 'package:ecommapp/controllers/cart_controller.dart';
 import 'package:ecommapp/pages/home/main_food_page.dart';
+import 'package:ecommapp/routes/route_helper.dart';
 import 'package:ecommapp/utils/app_constants.dart';
 import 'package:ecommapp/utils/colors.dart';
 import 'package:ecommapp/utils/dimensions.dart';
@@ -34,7 +35,7 @@ class CartPage extends StatelessWidget {
                 SizedBox(width: Dimensions.width20 * 5),
                 GestureDetector(
                   onTap: (){
-                    Get.to(()=>MainFoodPage());
+                    Get.toNamed(RouteHelper.getInitial());
                   },
                   child: AppIcon(
                     icon: Icons.home_outlined,
