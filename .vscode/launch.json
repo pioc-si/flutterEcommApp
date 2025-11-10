@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "flutterEcommApp",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "flutterEcommApp",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "flutterEcommApp(release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+    ],
+    "compounds": []
+}
+
+
